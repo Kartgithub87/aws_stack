@@ -42,12 +42,12 @@ jobs:
           name: Install dependencies
           command: |
             # install the dependencies needed for your playbook
-            yum check-update ansible 
+            apk add --update ansible 
       - run:
           name: Configure server
           command: |
-            ansible-playbook -i inventory.txt main4.yml
-                  
+            ansible-playbook -i inventory configure_instance.yml
+            
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
