@@ -14,7 +14,7 @@ commands:
           name: destroy environment
           when: on_fail
           command: |
-            aws cloudformation delete-stack --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} 
+            aws cloudformation delete-stack --stack-name myStack-cc63a
 
 jobs:
   say-hello:
@@ -72,6 +72,7 @@ jobs:
   smoke_test:
     docker:
       - image: alpine:latest
+      - image: amazon/aws-cli
     steps:
       - run: apk add --update curl
       - run:
@@ -96,8 +97,9 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - create_infrastructure
+#      - create_infrastructure
 #      - configure_infrastructure
-      - smoke_test:
-          requires:
-            - create_infrastructure
+#      - smoke_test:
+#          requires:
+#            - create_infrastructure
+      - smoke_test
