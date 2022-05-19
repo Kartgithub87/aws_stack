@@ -37,7 +37,7 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints: ["90:5d:bd:fd:c1:11:ea:89:11:07:aa:e3:4f:43:88:ba"] # You can get this ID in the section where you registered the SSH Key
+          fingerprints: ["89:fd:55:65:3f:fd:a6:40:20:9b:dd:f8:ba:18:92:28"] # You can get this ID in the section where you registered the SSH Key
       - run:
           name: Install dependencies
           command: |
@@ -55,5 +55,5 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - create_infrastructure
-#      - configure_infrastructure
+#      - create_infrastructure
+       - configure_infrastructure
