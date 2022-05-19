@@ -1,10 +1,9 @@
 - name: "to update the apt packages"
-  become: yes
+  become: true
   apt:
     update_cache: yes
 
 - name: "upgrade packages"
-  become: yes
+  become: true
   apt:
     upgrade: yes
-      
