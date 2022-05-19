@@ -96,5 +96,4 @@ workflows:
       - say-hello
       - create_infrastructure
 #      - configure_infrastructure
-      - smoke_test 
-      - destroy_environment
+      - smoke_test
