@@ -37,12 +37,13 @@ jobs:
     steps:
       - checkout
       - run:
-         name: Install tar, gzip and awscli
-         command: |
-           apk add tar gzip
-           apk update pip3
-           pip3 install \
-           awscli \
+          name: Install tar, gzip and awscli
+          command: |
+            apk add openssh-client
+            apk add tar gzip
+            apk update pip3
+            pip3 install \
+            awscli \
       - add_ssh_keys:
           fingerprints: ["89:fd:55:65:3f:fd:a6:40:20:9b:dd:f8:ba:18:92:28"] # You can get this ID in the section where you registered the SSH Key
       - run:
@@ -53,7 +54,7 @@ jobs:
       - run:
           name: Configure server
           command: |
-            ansible-playbook -i inventory.txt configure_instance.yml
+            ansible-playbook -vvvv -i inventory.txt -c ssh configure_instance.yml
             
 
 # Invoke jobs via workflows
